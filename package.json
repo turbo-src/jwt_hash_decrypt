@@ -1,0 +1,22 @@
+{
+  "name": "jwt-hash-decrypt",
+  "version": "1.0.0",
+  "description": "Hash and decrypt strings using JWT HS256",
+  "main": "jwt_hash_decrypt.js",
+  "scripts": {
+    "start": "node jwt_hash_decrypt.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jwt",
+    "hash",
+    "decrypt",
+    "security"
+  ],
+  "author": "7db9a",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "yargs": "^17.1.1"
+  }
+}
