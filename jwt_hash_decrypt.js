@@ -22,13 +22,19 @@ const argv = yargs
   .argv;
 
 function hashString(secret, string) {
-  return jwt.sign({ data: string }, secret, { algorithm: 'HS256' });
+  const obj = JSON.parse(string)
+  console.log('obj', obj)
+  // string === '{"githubToken": "ghp_..."}'
+  // obj === {githubToken: "ghp_..."}
+  return jwt.sign(obj, secret, { algorithm: 'HS256' });
 }
 
 function decryptString(secret, token) {
   try {
     const decoded = jwt.verify(token, secret, { algorithms: ['HS256'] });
-    return decoded.data;
+    // decoded === {githubToken: "ghp_...", iat: 123...}
+    //verify looks for decoded.githubToken
+    return decoded
   } catch (err) {
     console.error('Invalid token');
     return null;
