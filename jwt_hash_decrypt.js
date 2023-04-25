@@ -22,9 +22,10 @@ const argv = yargs
   .argv;
 
 function hashString(secret, string) {
-  const obj = JSON.parse(string)
-  console.log('obj', obj)
-  // string === '{"githubToken": "ghp_..."}'
+  const completeString = `{"githubToken": "${string}"}`
+  const obj = JSON.parse(completeString)
+  // string === 'ghp_...'
+  // completeString === '{"githubToken": "ghp_..."}'
   // obj === {githubToken: "ghp_..."}
   return jwt.sign(obj, secret, { algorithm: 'HS256' });
 }
@@ -45,6 +46,7 @@ if (argv.string) {
   console.log(hashString(argv.secret, argv.string));
 } else if (argv.token) {
   console.log(decryptString(argv.secret, argv.token));
-} else {
+}
+  else {
   console.log('Please provide either a string or a token to operate on');
 }
