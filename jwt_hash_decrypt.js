@@ -46,7 +46,6 @@ if (argv.string) {
   console.log(hashString(argv.secret, argv.string));
 } else if (argv.token) {
   console.log(decryptString(argv.secret, argv.token));
-}
-  else {
+} else {
   console.log('Please provide either a string or a token to operate on');
 }
