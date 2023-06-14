@@ -22,7 +22,7 @@ const argv = yargs
   .argv;
 
 function hashString(secret, string) {
-  const obj = JSON.parse(string)
+  const obj = {githubToken: string}
   console.log('obj', obj)
   // string === '{"githubToken": "ghp_..."}'
   // obj === {githubToken: "ghp_..."}
